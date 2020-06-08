@@ -26,12 +26,12 @@ public class Journal {
         this.name = name;
     }
 
-    Journal(String name, Date date){
+    Journal(String name, Date date) {
         this.name = name;
         this.date = date;
     }
 
-    Journal(Date date){
+    Journal(Date date) {
         this.date = date;
     }
 
@@ -39,8 +39,8 @@ public class Journal {
      * METHODS
      */
 
-     public void createFile(){
-         ediWriter = new JournalWriter(name);
-     }
+    public void createFile() {
+        ediWriter = new JournalWriter(name);
+    }
 
 }
