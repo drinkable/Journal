@@ -1,9 +1,13 @@
 import java.io.File;
 import java.io.FileWriter;
 
-class EntryWriter{
+public class JournalWriter{
 
     private File file;
     private FileWriter writer;
+
+    JournalWriter(String name){
+        
+    }
 
 }

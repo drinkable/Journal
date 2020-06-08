@@ -9,6 +9,7 @@ public class Journal {
      * Elements of a journal entry. The body is strored in a file.
      */
 
+    private JournalWriter ediWriter; // this object will edit and write files
     private String name;
     private String body;
     private Date date;
@@ -33,5 +34,13 @@ public class Journal {
     Journal(Date date){
         this.date = date;
     }
+
+    /**
+     * METHODS
+     */
+
+     public void createFile(){
+         ediWriter = new JournalWriter(name);
+     }
 
 }
