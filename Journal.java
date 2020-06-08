@@ -1,3 +1,5 @@
+// Journal Object. Every entry the user makes will have its own Journal Object.
+
 import java.io.File;
 import java.util.Date;
 
@@ -7,7 +9,7 @@ public class Journal {
      * Elements of a journal entry. The body is strored in a file.
      */
 
-    private File entry;
+    private File file;
     private String name;
     private String body;
     private Date date;
