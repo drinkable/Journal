@@ -9,7 +9,6 @@ public class Journal {
      * Elements of a journal entry. The body is strored in a file.
      */
 
-    private File file;
     private String name;
     private String body;
     private Date date;

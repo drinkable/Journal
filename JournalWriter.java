@@ -1,9 +1,9 @@
+import java.io.File;
 import java.io.FileWriter;
 
 class EntryWriter{
 
-    FileWriter writer;
-
-    
+    private File file;
+    private FileWriter writer;
 
 }
