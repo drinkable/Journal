@@ -10,13 +10,21 @@ public class JournalWriter {
     private static File file;
     private FileWriter writer;
 
+    final static String dir = "JournalEntries"; // Directory where journal entries will be stored
+
     /**
      * CONSTRUCTOR
      */
 
     JournalWriter(String name) {
 
-        createFile(name);
+        // name = name.concat(".txt"); // Define the Journal Entry as a text file
+
+        file = new File(dir, name);
+
+        // createFile(name);
+
+        deleteFile(name);
 
     }
 
@@ -26,9 +34,17 @@ public class JournalWriter {
 
     private static void createFile(String name) {
 
-        String path = "/JournalEntries/" + name;
+        try {
+            file.createNewFile();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        file = new File(path);
+    }
+
+    public static void deleteFile(String name) {
+
+        file.delete();
 
     }
 
