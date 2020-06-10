@@ -24,7 +24,7 @@ public class JournalWriter {
 
         // createFile(name);
 
-        deleteFile(name);
+        deleteFile();
 
     }
 
@@ -41,8 +41,8 @@ public class JournalWriter {
         }
 
     }
-
-    public static void deleteFile(String name) {
+ 
+    public static void deleteFile() {
 
         file.delete();
 
