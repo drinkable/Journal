@@ -18,13 +18,7 @@ public class JournalWriter {
 
     JournalWriter(String name) {
 
-        // name = name.concat(".txt"); // Define the Journal Entry as a text file
-
         file = new File(dir, name);
-
-        // createFile(name);
-
-        deleteFile();
 
     }
 
@@ -32,7 +26,7 @@ public class JournalWriter {
      * METHODS
      */
 
-    private static void createFile(String name) {
+    public void createFile() {
 
         try {
             file.createNewFile();
@@ -42,9 +36,13 @@ public class JournalWriter {
 
     }
  
-    public static void deleteFile() {
+    public void deleteFile() {
 
         file.delete();
+
+    }
+
+    public void writeEntry(String entry){
 
     }
 
