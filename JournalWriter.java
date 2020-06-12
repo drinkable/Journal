@@ -23,23 +23,11 @@ public class JournalWriter {
 
         file = new File(dir, name);
 
-      //  initFileWriter();
-
     }
 
     /**
      * METHODS
      */
-
-    public void initFileWriter() {
-
-        try {
-            writer = new FileWriter(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     public void createFile() {
 
