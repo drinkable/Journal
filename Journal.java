@@ -51,22 +51,42 @@ public class Journal {
 
     }
 
+    public void setName(String name) {
+
+        this.name = name;
+
+    }
+
     public String dateToString() {
 
         return this.date.toString();
 
     }
 
-    public void setBody(String body){
+    public void setDate(Date date) {
 
-        this.body = body;
+        this.date = date;
 
     }
 
-    public void writeEntry(){
+    public String getBody() {
+
+        return this.name;
+
+    }
+
+    public void setBody(String body) {
+
+        this.body = body;
+
+        writeEntry(this.body);
+
+    }
+
+    public void writeEntry(String body) {
 
         ediWriter.writeEntry(body);
-        
+
     }
 
 }
