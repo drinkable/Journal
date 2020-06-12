@@ -39,16 +39,14 @@ public class GUI implements ActionListener {
         contentPane.add(entryDate, gbc);
 
         entryBody = new JTextArea("Entry journal entry here.");
+
+        scroll = new JScrollPane(entryBody, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         gbc.ipady = 400;
         gbc.ipadx = 340;
         gbc.gridwidth = 4;
         gbc.gridx = 0;
         gbc.gridy = 1;
-        // contentPane.add(entryBody, gbc);
-
-        scroll = new JScrollPane(entryBody, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
-                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
         contentPane.add(scroll, gbc);
 
         entryList = new JComboBox();
