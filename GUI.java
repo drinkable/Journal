@@ -3,6 +3,7 @@ import javax.swing.plaf.ColorUIResource;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
 public class GUI implements ActionListener {
     JFrame frame;
@@ -14,6 +15,8 @@ public class GUI implements ActionListener {
     JComboBox entryList;
     JButton saveButton, deleteButton, newButton;
     JScrollPane scroll;
+    Journal currentEntry;
+    final static File dir = new File("JournalEntries");
 
     public GUI() {
 
@@ -68,7 +71,9 @@ public class GUI implements ActionListener {
         gbc.gridy = 3;
         contentPane.add(scroll, gbc);
 
-        entryList = new JComboBox();
+        String[] list = initEntries();
+        entryList = new JComboBox(list);
+        entryList.addActionListener(new SelectEntryListener());
         gbc.ipady = 7;
         gbc.ipadx = 90;
         gbc.gridx = 3;
@@ -76,22 +81,25 @@ public class GUI implements ActionListener {
         contentPane.add(entryList, gbc);
 
         saveButton = new JButton("Save");
+        saveButton.addActionListener(new SaveListener());
         gbc.gridx = 0;
         gbc.gridy = 4;
         contentPane.add(saveButton, gbc);
 
         deleteButton = new JButton("Delete");
+        deleteButton.addActionListener(new DeleteListener());
         gbc.gridx = 0;
         gbc.gridy = 5;
         contentPane.add(deleteButton, gbc);
 
         newButton = new JButton("New");
+        newButton.addActionListener(new NewListener());
         gbc.gridx = 0;
         gbc.gridy = 6;
         contentPane.add(newButton, gbc);
 
         // Finalize frame
-        frame.getContentPane().setPreferredSize(new Dimension(700, 600));
+        frame.getContentPane().setPreferredSize(new Dimension(700, 620));
         frame.setContentPane(contentPane);
         frame.pack();
         frame.setLocationRelativeTo(null);
@@ -99,7 +107,24 @@ public class GUI implements ActionListener {
 
     }
 
-    public void actionPerformed(ActionEvent event) {
+    public static String[] initEntries() {
+
+        File[] files = dir.listFiles();
+
+        int count = 0;
+        String[] entryNames = new String[50];
+
+        for (File entry : files) {
+
+            String fileName[] = entry.getName().split("\\.");
+
+            entryNames[count] = fileName[0];
+
+            count++;
+
+        }
+
+        return entryNames;
 
     }
 
@@ -107,8 +132,6 @@ public class GUI implements ActionListener {
      * Create and show the GUI.
      */
     private static void runGUI() {
-
-        JFrame.setDefaultLookAndFeelDecorated(true);
 
         GUI journalGUI = new GUI();
 
@@ -120,6 +143,74 @@ public class GUI implements ActionListener {
                 runGUI();
             }
         });
+    }
+
+    class SaveListener implements ActionListener {
+
+        public void actionPerformed(ActionEvent event) {
+
+            currentEntry.setName(entryName.getText().toString());
+            currentEntry.setBody(entryBody.getText().toString());
+
+        }
+
+    }
+
+    class DeleteListener implements ActionListener {
+
+        public void actionPerformed(ActionEvent event) {
+
+            currentEntry.deleteEntry();
+
+            String name = entryName.getText().toString();
+            entryList.removeItem(makeObj(name));
+
+        }
+
+    }
+
+    class NewListener implements ActionListener {
+
+        public void actionPerformed(ActionEvent event) {
+
+            String name = entryName.getText().toString();
+
+            currentEntry = new Journal(name);
+            currentEntry.writeEntry(entryBody.getText().toString());
+
+            entryList.addItem(makeObj(name));
+
+        }
+
+    }
+
+    private Object makeObj(final String item) {
+        return new Object() {
+            public String toString() {
+                return item;
+            }
+        };
+    }
+
+    class SelectEntryListener implements ActionListener {
+
+        public void actionPerformed(ActionEvent event) {
+
+            currentEntry = new Journal(entryList.getSelectedItem().toString());
+
+            entryName.setText(currentEntry.getName());
+
+            String body = currentEntry.getBody();
+            entryBody.setText(body);
+
+        }
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+
     }
 
 }

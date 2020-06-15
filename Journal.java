@@ -53,7 +53,7 @@ public class Journal {
 
     public void setName(String name) {
 
-        this.name = name;
+        ediWriter.changeName(name);
 
     }
 
@@ -71,7 +71,9 @@ public class Journal {
 
     public String getBody() {
 
-        return this.name;
+        body = ediWriter.getEntryBody();
+
+        return body;
 
     }
 

@@ -1,6 +1,11 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Scanner;
 
 public class JournalWriter {
 
@@ -9,7 +14,6 @@ public class JournalWriter {
      */
 
     private File file;
-    private FileWriter writer;
 
     final static String dir = "JournalEntries"; // Directory where journal entries will be stored
 
@@ -41,9 +45,29 @@ public class JournalWriter {
 
     public void deleteFile() {
 
-        System.out.println("here");
-
         file.delete();
+
+    }
+
+    public String getEntryBody() {
+
+        String body = "";
+
+        try {
+
+            body = new String(Files.readAllBytes(Paths.get(file.getPath())));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return body;
+
+    }
+
+    public void changeName(String name) {
+
+        file.renameTo(new File(dir, name.concat(".txt")));
 
     }
 
