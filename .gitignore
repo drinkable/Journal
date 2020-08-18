@@ -1,5 +1,0 @@
-# Don't track any Journal Entries
-JournalEntries/*
-
-# Keep the folder to store entries
-!JournalEntries/.gitkeep

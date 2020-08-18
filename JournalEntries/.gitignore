@@ -1,0 +1,5 @@
+# Don't track any .txt (Journal Entry) files
+*
+
+# But do track this .gitignore file
+!.gitignore
