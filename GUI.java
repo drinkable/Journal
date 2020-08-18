@@ -45,20 +45,20 @@ public class GUI implements ActionListener {
         gbc.gridy = 1;
         contentPane.add(entryNameLabel, gbc);
 
-        entryDateLabel = new JLabel("Date:");
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        contentPane.add(entryDateLabel, gbc);
+        // entryDateLabel = new JLabel("Date:");
+        // gbc.gridx = 1;
+        // gbc.gridy = 1;
+        // contentPane.add(entryDateLabel, gbc);
 
         entryName = new JTextField("Name");
         gbc.gridx = 0;
         gbc.gridy = 2;
         contentPane.add(entryName, gbc);
 
-        entryDate = new JLabel("Date");
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        contentPane.add(entryDate, gbc);
+        // entryDate = new JLabel("Date");
+        // gbc.gridx = 1;
+        // gbc.gridy = 2;
+        // contentPane.add(entryDate, gbc);
 
         entryBody = new JTextArea("Entry journal entry here.");
 
