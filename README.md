@@ -10,6 +10,8 @@ The following steps use VSCode with the Java Extension Pack installed but the pr
 
 ![alt text](images/1.png "Cloning the Repo")
 
+</br>
+
 **2. Open GUI.java**
 
 </br>
