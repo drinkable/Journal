@@ -15,3 +15,11 @@ The following steps use VSCode with the Java Extension Pack installed but the pr
 
 
 ![alt text](images/2.png "Open the file")
+
+</br>
+
+**3. Go to line 140 and press 'Run'**
+
+![alt text](images/3.png "Run the program")
+
+The program should have opened up now!
