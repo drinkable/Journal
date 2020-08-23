@@ -14,6 +14,5 @@ The following steps use VSCode with the Java Extension Pack installed but the pr
 
 **2. Open GUI.java**
 
-</br>
 
 ![alt text](images/2.png "Open the file")
