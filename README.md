@@ -1,7 +1,7 @@
 # Journal Demo
 Simple Journal application. Made in Java and uses a GUI interface.
 
-See a video demo ![caption](Demo/GUI Journal.mp4)
+See a video demo ![alt text](Demo/GUI_Journal.mp4)
 
 ## Usage
 The following steps use VSCode with the Java Extension Pack installed but the program should run in any Java IDE.
